@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgd.mapper.CourseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zgd.entity.Course">
+        <id column="courseid" property="courseid" />
+        <result column="date" property="date" />
+        <result column="teacher" property="teacher" />
+        <result column="time" property="time" />
+        <result column="study" property="study" />
+        <result column="type" property="type" />
+        <result column="address" property="address" />
+        <result column="material" property="material" />
+        <result column="video" property="video" />
+    </resultMap>
+
+</mapper>
