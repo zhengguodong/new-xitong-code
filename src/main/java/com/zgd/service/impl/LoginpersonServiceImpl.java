@@ -5,10 +5,12 @@ import com.zgd.entity.Loginperson;
 import com.zgd.mapper.LoginpersonMapper;
 import com.zgd.service.LoginpersonService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zgd.vo.Register;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -21,14 +23,29 @@ import javax.annotation.Resource;
  */
 @Service
 public class LoginpersonServiceImpl extends ServiceImpl<LoginpersonMapper, Loginperson> implements LoginpersonService {
-    @Autowired
+    @Resource
     private LoginpersonMapper loginpersonMapper;
     @Override
     public Integer selectService(String username, String password) {
         QueryWrapper<Loginperson> qw=new QueryWrapper<>();
-        qw.eq("usernamne",username);
+        qw.eq("username",username);
         qw.eq("password",password);
         Integer num=loginpersonMapper.selectCount(qw);
         return num;
+    }
+
+    @Override
+    public Integer register(Loginperson person) {
+
+        int num= loginpersonMapper.insert(person);
+        return num;
+    }
+
+    @Override
+    public List<Loginperson> selectLists() {
+        QueryWrapper<Loginperson> qw=new QueryWrapper<>();
+
+        List<Loginperson> list=loginpersonMapper.selectList(qw);
+        return list;
     }
 }

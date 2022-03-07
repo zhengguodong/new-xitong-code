@@ -13,5 +13,11 @@
         <result column="material" property="material" />
         <result column="date" property="date" />
     </resultMap>
+    <update id="updateStatus" parameterType="java.lang.Integer">
+        update homework
+        set
+        status="1"
+        where courseid=#{courseid}
+    </update>
 
 </mapper>

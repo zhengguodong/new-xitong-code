@@ -14,5 +14,10 @@
         <result column="material" property="material" />
         <result column="video" property="video" />
     </resultMap>
-
+    <update id="updateVideo" parameterType="java.lang.Integer">
+        update course
+        set
+        video="1"
+        where courseid=#{courseid}
+    </update>
 </mapper>

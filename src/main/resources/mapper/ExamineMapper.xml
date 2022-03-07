@@ -13,5 +13,16 @@
         <result column="value" property="value" />
         <result column="status_answer" property="statusAnswer" />
     </resultMap>
-
+    <update id="updateStatus" parameterType="java.lang.Integer">
+        update examine
+        set
+        status="1"
+        where id=#{id}
+    </update>
+    <update id="updateSta" parameterType="java.lang.Integer">
+        update examine
+        set
+        status_answer="2"
+        where id=#{id}
+    </update>
 </mapper>

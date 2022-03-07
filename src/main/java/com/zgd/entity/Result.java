@@ -6,5 +6,5 @@ import lombok.Data;
 public class Result {
     private Integer code;
     private String msg;
-    private Object obj;
+    private Object data;
 }

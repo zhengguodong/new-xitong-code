@@ -8,7 +8,7 @@ public class result {
            Result r=new Result();
            r.setCode(200);
            r.setMsg("操作成功！");
-           r.setObj(obj);
+           r.setData(obj);
            return r;
     }
     public static Result success(){
