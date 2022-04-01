@@ -20,5 +20,5 @@ public interface LoginpersonService extends IService<Loginperson> {
     Integer selectService(String username,String password);
     Integer register(Loginperson person);
     List<Loginperson> selectLists();
-
+    boolean updateUserAvator(Integer id,String file);
 }

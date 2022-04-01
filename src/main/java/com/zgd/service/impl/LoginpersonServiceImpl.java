@@ -36,7 +36,14 @@ public class LoginpersonServiceImpl extends ServiceImpl<LoginpersonMapper, Login
 
     @Override
     public Integer register(Loginperson person) {
+        QueryWrapper<Loginperson> qw=new QueryWrapper<>();
 
+        List<Loginperson> lists=loginpersonMapper.selectList(qw);
+        for(Loginperson l:lists){
+            if(l.getUsername().equals(person.getUsername())){
+                return 2;
+            }
+        }
         int num= loginpersonMapper.insert(person);
         return num;
     }
@@ -47,5 +54,15 @@ public class LoginpersonServiceImpl extends ServiceImpl<LoginpersonMapper, Login
 
         List<Loginperson> list=loginpersonMapper.selectList(qw);
         return list;
+    }
+
+    @Override
+    public boolean updateUserAvator(Integer id, String file) {
+        Loginperson p=new Loginperson();
+        p.setName(file);
+        p.setId(id);
+        QueryWrapper<Loginperson> qw=new QueryWrapper<>();
+        qw.eq("id",id);
+        return loginpersonMapper.update(p,qw)!=0?true:false;
     }
 }

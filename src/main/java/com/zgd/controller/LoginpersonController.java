@@ -60,6 +60,8 @@ public class LoginpersonController {
         int num=loginpersonService.register(person);
         if(num==1){
             return result.success();
+        }else if(num==2){
+            return result.fail(300,"账号重复，请重新输入");
         }else{
             return result.fail();
         }

@@ -24,4 +24,10 @@ public class result {
         r.setMsg("操作失败！");
         return r;
     }
+    public static Result fail(Integer code,String msg){
+        Result r=new Result();
+        r.setCode(code);
+        r.setMsg(msg);
+        return r;
+    }
 }
